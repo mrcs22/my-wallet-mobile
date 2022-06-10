@@ -3,7 +3,7 @@ package mrcs.mywallet
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import mrcs.mywallet.databinding.ActivityLoginBinding
-
+import mrcs.mywallet.domain.User
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
