@@ -1,6 +1,7 @@
 package mrcs.mywallet.ui
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,7 +10,7 @@ import android.widget.ProgressBar
 import com.google.android.material.snackbar.Snackbar
 import mrcs.mywallet.R
 import mrcs.mywallet.databinding.ActivitySignUpBinding
-import mrcs.mywallet.domain.User
+import mrcs.mywallet.services.signUp.SignUpData
 import mrcs.mywallet.services.signUp.SignUpServices
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -58,7 +59,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun signUp(){
         loading.visibility = View.VISIBLE
-        val userData : User = getUserData()
+        val userData : SignUpData = getUserData()
 
         val isUserDataValid = validateUserData(userData)
         if(!isUserDataValid) {
@@ -87,15 +88,15 @@ class SignUpActivity : AppCompatActivity() {
         })
     }
 
-    private fun getUserData(): User {
+    private fun getUserData(): SignUpData {
         val name = nameHolder.text.toString()
         val email = emailHolder.text.toString()
         val passwod = passwordHolder.text.toString()
 
-        return User(name,email,passwod)
+        return SignUpData(name,email,passwod)
     }
 
-    private fun  validateUserData(userData: User): Boolean {
+    private fun  validateUserData(userData: SignUpData): Boolean {
        if(TextUtils.isEmpty(userData.name)){
            showMessage(getString(R.string.sem_nome))
            return false
@@ -128,7 +129,9 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun showMessage(message: String){
         loading.visibility = View.GONE
-        Snackbar.make(binding.mbSignUp, message, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(binding.mbSignUp, message, Snackbar.LENGTH_LONG)
+            .setTextColor(Color.RED)
+            .show()
     }
 
     private fun resetSignUp(){

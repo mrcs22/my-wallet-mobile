@@ -16,4 +16,5 @@
     <string name="email_invalido">Email inválido</string>
     <string name="senhas_diferentes">As senhas devem ser iguais</string>
     <string name="sem_senha">Senha é obrigatória</string>
+    <string name="dados_incorretos">Dados incorretos</string>
 </resources>
