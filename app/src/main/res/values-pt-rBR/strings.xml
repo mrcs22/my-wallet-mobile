@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyWallet</string>
+    <string name="conflito_cadastro">Usuário já cadastrado</string>
+    <string name="erro_inesperado">Erro do servidor. Tente mais tarde</string>
+    <string name="sem_email">Email é obrigatório</string>
+    <string name="email_invalido">Email inválido</string>
+    <string name="senhas_diferentes">As senhas devem ser iguais</string>
 </resources>

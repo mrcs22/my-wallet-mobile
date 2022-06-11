@@ -9,4 +9,11 @@
     <string name="nome">Nome</string>
     <string name="confirme_a_senha">Confirme a senha</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="conflito_cadastro">Usuário já cadastrado</string>
+    <string name="erro_inesperado">Erro do servidor. Tente mais tarde</string>
+    <string name="sem_nome">Nome é obrigatório</string>
+    <string name="sem_email">Email é obrigatório</string>
+    <string name="email_invalido">Email inválido</string>
+    <string name="senhas_diferentes">As senhas devem ser iguais</string>
+    <string name="sem_senha">Senha é obrigatória</string>
 </resources>

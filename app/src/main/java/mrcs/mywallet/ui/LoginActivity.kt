@@ -1,11 +1,9 @@
-package mrcs.mywallet
+package mrcs.mywallet.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import mrcs.mywallet.databinding.ActivityLoginBinding
-
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -18,15 +16,20 @@ class LoginActivity : AppCompatActivity() {
 
         val signUpButton = binding.tvGoToSignUp
         signUpButton.setOnClickListener {
-           switchActivities()
+        switchToSignUp()
         }
-
     }
 
-    private fun switchActivities() {
+    private fun switchToSignUp() {
         val switchActivityIntent = Intent(this, SignUpActivity::class.java)
         startActivity(switchActivityIntent)
     }
 
 
+
+
+
+
 }
+
+
