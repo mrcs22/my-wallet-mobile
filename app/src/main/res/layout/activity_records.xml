@@ -37,7 +37,9 @@
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibSingOut" />
+        app:layout_constraintTop_toBottomOf="@+id/ibSingOut"
+        tools:listitem="@layout/record_item"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/mbAddIncome"

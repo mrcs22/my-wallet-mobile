@@ -56,6 +56,12 @@ class LoginActivity : AppCompatActivity() {
         startActivity(switchActivityIntent)
     }
 
+    private fun switchToRecords() {
+        val switchActivityIntent = Intent(this, RecordsActivity::class.java)
+        switchActivityIntent.putExtra(RecordsActivity.Extras.USER, loggedUser)
+        startActivity(switchActivityIntent)
+    }
+
     private fun login(){
         loading.visibility = View.VISIBLE
         val loginData : LoginData = getLoginData()
@@ -71,6 +77,7 @@ class LoginActivity : AppCompatActivity() {
                 if(response?.isSuccessful == true){
                     loggedUser = response.body()!!
                     resetLogin()
+                    switchToRecords()
                     return
                 }
 

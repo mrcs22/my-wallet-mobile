@@ -53,8 +53,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun switchToLogin() {
-        val switchActivityIntent = Intent(this, LoginActivity::class.java)
-        startActivity(switchActivityIntent)
+      this.onBackPressed()
     }
 
     private fun signUp(){
