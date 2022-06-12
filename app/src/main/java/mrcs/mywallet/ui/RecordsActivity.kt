@@ -14,6 +14,7 @@ class RecordsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRecordsBinding
     private lateinit var grettingsHolder: TextView;
+    private lateinit var authToken: String;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,7 @@ class RecordsActivity : AppCompatActivity() {
             }
 
             grettingsHolder.text = "Olá, ${it?.name}"
+            authToken= it?.token.toString()
         }
     }
 }
