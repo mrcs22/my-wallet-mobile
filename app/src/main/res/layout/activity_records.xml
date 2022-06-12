@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RecordsActivity">
+
+    <TextView
+        android:id="@+id/tvGreetings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:text="Olá, Marcus"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ibSingOut"
+        app:layout_constraintStart_toStartOf="@+id/rcRecords"
+        app:layout_constraintTop_toTopOf="@+id/ibSingOut" />
+
+    <ImageButton
+        android:id="@+id/ibSingOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="-16dp"
+        android:rotation="90"
+        android:src="@android:drawable/ic_menu_upload_you_tube"
+        app:layout_constraintEnd_toEndOf="@+id/rcRecords"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcRecords"
+        android:layout_width="355dp"
+        android:layout_height="379dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/round_corner_background"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibSingOut" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mbAddIncome"
+        android:layout_width="161dp"
+        android:layout_height="154dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_corner_background"
+        android:insetLeft="15dp"
+        android:insetRight="25dp"
+        android:text="@string/nova_entrada"
+        android:textAlignment="center"
+        android:textColor="@color/background_"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rcRecords"
+        app:layout_constraintTop_toBottomOf="@+id/rcRecords" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mbAddExpense"
+        android:layout_width="161dp"
+        android:layout_height="154dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_corner_background"
+        android:insetLeft="15dp"
+        android:insetRight="25dp"
+        android:text="@string/nova_saida"
+        android:textAlignment="center"
+        android:textColor="@color/background_"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rcRecords"
+        app:layout_constraintTop_toBottomOf="@+id/rcRecords">
+
+    </com.google.android.material.button.MaterialButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
