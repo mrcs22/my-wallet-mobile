@@ -27,4 +27,5 @@
     <string name="ola">Olá</string>
     <string name="valor_transacao_invalido">Insira um valor maior que 0,00</string>
     <string name="descricao_transacao_invalida">Insira uma descrição</string>
+    <string name="senha_diferente_ou_vazia">As senhas devem ser iguais e não vazias</string>
 </resources>

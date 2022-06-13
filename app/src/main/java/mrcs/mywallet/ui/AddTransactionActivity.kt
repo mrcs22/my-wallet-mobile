@@ -36,11 +36,11 @@ class AddTransactionActivity : AppCompatActivity() {
 
         binding.tietValue.setOnKeyListener(::maskInput)
 
-        loadTransactionTypeFromExtra()
-
         binding.mbSaveTransaction.setOnClickListener{
             saveTransaction()
         }
+
+        loadTransactionTypeFromExtra()
     }
 
     private fun  maskInput(view: View, i: Int, keyEvent: KeyEvent):Boolean{

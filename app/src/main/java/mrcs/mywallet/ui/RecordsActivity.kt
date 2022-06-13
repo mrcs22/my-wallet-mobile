@@ -25,7 +25,6 @@ class RecordsActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityRecordsBinding
-    private lateinit var grettingsHolder: TextView;
     private lateinit var authToken: String;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +32,9 @@ class RecordsActivity : AppCompatActivity() {
 
         binding = ActivityRecordsBinding.inflate(layoutInflater)
 
-        grettingsHolder = binding.tvGreetings
+        binding.ibSingOut.setOnClickListener{
+            this.onBackPressed()
+        }
 
         binding.mbAddExpense.setOnClickListener{
             switchToAddTransaction("out")
@@ -70,7 +71,7 @@ class RecordsActivity : AppCompatActivity() {
                 this.onBackPressed()
             }
 
-            grettingsHolder.text = "${getString(R.string.ola)}, ${it?.name}"
+            binding.tvGreetings.text = "${getString(R.string.ola)}, ${it?.name}"
             authToken= it?.token.toString()
 
             getRecords()

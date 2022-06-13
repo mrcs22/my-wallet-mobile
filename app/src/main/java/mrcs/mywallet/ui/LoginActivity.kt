@@ -7,9 +7,7 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputEditText
 import mrcs.mywallet.R
 import mrcs.mywallet.databinding.ActivityLoginBinding
 import mrcs.mywallet.domain.User
@@ -23,10 +21,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loggedUser: User
 
-    private lateinit var emailHolder: TextInputEditText
-    private lateinit var passwordHolder: TextInputEditText
-    private lateinit var loginButton: MaterialButton
-
     private lateinit var loading: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,13 +29,9 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        emailHolder = binding.tietEmail
-        passwordHolder = binding.tietPassword
-        loginButton = binding.mbLogin
-
         loading = binding.pbLoading
 
-        loginButton.setOnClickListener{
+        binding.mbLogin.setOnClickListener{
             login()
         }
 
@@ -95,18 +85,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun getLoginData(): LoginData {
-        val email = emailHolder.text.toString()
-        val passwod = passwordHolder.text.toString()
+        val email = binding.tietEmail.text.toString()
+        val password = binding.tietPassword.text.toString()
 
-        return LoginData(email, passwod)
+        return LoginData(email, password)
     }
 
     private fun  validateLoginData(loginData: LoginData): Boolean {
-        if(TextUtils.isEmpty(loginData.email)){
-            showMessage(getString(R.string.sem_email))
-            return false
-        }
-
         val isEmailInvalid = !(android.util.Patterns.EMAIL_ADDRESS.matcher(loginData.email).matches())
         if(isEmailInvalid){
             showMessage(getString(R.string.email_invalido))
@@ -123,7 +108,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun showMessage(message: String){
         loading.visibility = View.GONE
-        Snackbar.make(loginButton, message, Snackbar.LENGTH_LONG)
+        Snackbar.make(binding.mbLogin, message, Snackbar.LENGTH_LONG)
             .setTextColor(Color.RED)
             .show()
     }
@@ -131,8 +116,8 @@ class LoginActivity : AppCompatActivity() {
     private fun resetLogin(){
         loading.visibility = View.GONE
 
-        emailHolder.setText("")
-        passwordHolder.setText("")
+        binding.tietEmail.setText("")
+        binding.tietPassword.setText("")
     }
 }
 

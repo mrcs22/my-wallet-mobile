@@ -1,6 +1,5 @@
 package mrcs.mywallet.ui
 
-import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,15 +15,9 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import  com.google.android.material.textfield.TextInputEditText as TextInput
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
-
-    private lateinit var nameHolder: TextInput
-    private lateinit var emailHolder: TextInput
-    private lateinit var passwordHolder: TextInput
-    private lateinit var confirmPasswordHolder: TextInput
 
     private lateinit var loading:ProgressBar
 
@@ -33,11 +26,6 @@ class SignUpActivity : AppCompatActivity() {
 
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        nameHolder = binding.tietName
-        emailHolder = binding.tietEmail
-        passwordHolder = binding.tietPassword
-        confirmPasswordHolder = binding.tietConfirmPassword
 
         loading = binding.pbLoading
 
@@ -88,22 +76,17 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun getUserData(): SignUpData {
-        val name = nameHolder.text.toString()
-        val email = emailHolder.text.toString()
-        val passwod = passwordHolder.text.toString()
+        val name = binding.tietName.text.toString()
+        val email = binding.tietEmail.text.toString()
+        val passwod = binding.tietPassword.text.toString()
 
         return SignUpData(name,email,passwod)
     }
 
     private fun  validateUserData(userData: SignUpData): Boolean {
-       if(TextUtils.isEmpty(userData.name)){
+        if(TextUtils.isEmpty(userData.name)){
            showMessage(getString(R.string.sem_nome))
            return false
-       }
-
-        if(TextUtils.isEmpty(userData.email)){
-            showMessage(getString(R.string.sem_email))
-            return false
         }
 
         val isEmailInvalid = !(android.util.Patterns.EMAIL_ADDRESS.matcher(userData.email).matches())
@@ -112,14 +95,11 @@ class SignUpActivity : AppCompatActivity() {
             return false
         }
 
-        if(TextUtils.isEmpty(userData.password)){
-            showMessage(getString(R.string.sem_senha))
-            return false
-        }
 
-        val passwordConfirmation = confirmPasswordHolder.text.toString()
-        if(passwordConfirmation != userData.password){
-            showMessage(getString(R.string.senhas_diferentes))
+        val isPasswordBlank = userData.password.isBlank()
+        val doesPasswordMatchToItsConfirm = (binding.tietConfirmPassword.text.toString() == userData.password)
+        if(isPasswordBlank || !doesPasswordMatchToItsConfirm ){
+            showMessage(getString(R.string.senha_diferente_ou_vazia))
             return false
         }
 
@@ -136,9 +116,9 @@ class SignUpActivity : AppCompatActivity() {
     private fun resetSignUp(){
         loading.visibility = View.GONE
 
-        nameHolder.setText("")
-        emailHolder.setText("")
-        passwordHolder.setText("")
-        confirmPasswordHolder.setText("")
+        binding.tietName.setText("")
+        binding.tietEmail.setText("")
+        binding.tietPassword.setText("")
+        binding.tietConfirmPassword.setText("")
     }
 }
