@@ -25,6 +25,8 @@
 - [x] Add expense
 - [x] Add revenue
 
+<img src="./readme_assets/app.gif" height="500px"/>
+
 # Build
 ### Step 1:
 Clone this repo
