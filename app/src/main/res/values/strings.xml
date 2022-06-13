@@ -21,4 +21,6 @@
     <string name="nova_saida">Nova Saída</string>
     <string name="total">Total</string>
     <string name="sem_registros">Você ainda não adicionou nenhum registro! :)</string>
+    <string name="salvar_transacao">Salvar transação</string>
+    <string name="descricao">Descrição</string>
 </resources>

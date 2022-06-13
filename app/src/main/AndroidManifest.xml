@@ -16,9 +16,11 @@
         android:theme="@style/Theme.MyWallet"
         tools:targetApi="31">
         <activity
+            android:name=".ui.AddTransactionActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.RecordsActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".ui.SignUpActivity"
             android:exported="true" />
@@ -27,6 +29,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
