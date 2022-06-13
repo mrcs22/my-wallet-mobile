@@ -1,5 +1,6 @@
 package mrcs.mywallet.ui
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import mrcs.mywallet.R
 import mrcs.mywallet.databinding.ActivityRecordsBinding
 import mrcs.mywallet.domain.Records
+import mrcs.mywallet.domain.Transaction
 import mrcs.mywallet.domain.User
 import mrcs.mywallet.services.records.RecordsServices
 import mrcs.mywallet.ui.adapter.RecordsAdapter
@@ -34,9 +36,23 @@ class RecordsActivity : AppCompatActivity() {
 
         grettingsHolder = binding.tvGreetings
 
+        binding.mbAddExpense.setOnClickListener{
+            switchToAddTransaction(Transaction("expense", null))
+        }
+
+        binding.mbAddIncome.setOnClickListener{
+            switchToAddTransaction(Transaction("income",null))
+        }
+
         setContentView(binding.root)
 
         loadUserFromExtra()
+    }
+
+    private fun switchToAddTransaction(transactionType: Transaction){
+        val switchActivityIntent = Intent(this, AddTransactionActivity::class.java)
+        switchActivityIntent.putExtra(AddTransactionActivity.Extras.TRANSACTION_TYPE, transactionType)
+        startActivity(switchActivityIntent)
     }
 
     private fun loadUserFromExtra(){
