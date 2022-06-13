@@ -112,19 +112,17 @@
             app:layout_constraintTop_toBottomOf="@+id/tietConfirmPassword" />
 
 
-
         <TextView
             android:id="@+id/tvGoToLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:clickable="true"
             android:focusable="true"
             android:text="@string/redirecionar_para_login"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/mbSignUp"
+            app:layout_constraintStart_toStartOf="@+id/mbSignUp"
             app:layout_constraintTop_toBottomOf="@+id/mbSignUp" />
 
         <ProgressBar
@@ -135,13 +133,12 @@
             android:layout_centerInParent="true"
             android:layout_marginBottom="44dp"
             android:backgroundTint="#00ffffff"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.491"
-            android:visibility="gone"
-            />
+            app:layout_constraintVertical_bias="0.491" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

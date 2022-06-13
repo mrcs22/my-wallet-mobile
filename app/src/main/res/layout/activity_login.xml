@@ -9,8 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="382dp"
+        android:layout_height="352dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,21 +20,19 @@
             android:id="@+id/tvLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/saira_stencil_one_regular"
             android:text="@string/appName"
             android:textSize="34sp"
-            app:layout_constraintBottom_toTopOf="@+id/tietEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietEmail"
             android:layout_width="350dp"
             android:layout_height="54dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/round_corner_background"
             android:backgroundTint="@color/white"
             android:ems="10"
@@ -44,16 +42,15 @@
             android:minHeight="50dp"
             android:padding="16dp"
             android:textColorHint="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/tietPassword"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLogo" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietPassword"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/round_corner_background"
             android:backgroundTint="@color/white"
             android:ems="10"
@@ -62,34 +59,32 @@
             android:minHeight="50dp"
             android:padding="16dp"
             android:textColorHint="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/mbLogin"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tietEmail" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mbLogin"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/round_corner_background"
             android:text="@string/entrar"
             android:textColor="@color/white"
             app:backgroundTint="@color/button_"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tietPassword" />
 
         <TextView
             android:id="@+id/tvGoToSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:clickable="true"
             android:focusable="true"
             android:text="@string/primeira_vez_cadastre_se"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mbLogin" />
@@ -100,14 +95,12 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerInParent="true"
-
             android:backgroundTint="#00ffffff"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/tietPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tietPassword"
-            app:layout_constraintTop_toTopOf="@+id/tietEmail"
-            android:visibility="gone"
-            />
+            app:layout_constraintTop_toTopOf="@+id/tietEmail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

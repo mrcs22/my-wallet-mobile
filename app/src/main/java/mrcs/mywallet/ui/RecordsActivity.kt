@@ -52,7 +52,9 @@ class RecordsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        binding.tvNoTransactions.visibility=View.GONE
         binding.pbLoading.visibility = View.VISIBLE
+
         getRecords()
     }
 
@@ -96,16 +98,16 @@ class RecordsActivity : AppCompatActivity() {
                 }
 
                 val totalValue = body?.total ?: 0
-                if(totalValue >= 0){
-                    binding.tvTotalValue.setTextColor(Color.parseColor("#009900"))
-                }
+                val totalValueColor = if(totalValue >= 0) "#009900" else "#f70000"
+                binding.tvTotalValue.setTextColor(Color.parseColor(totalValueColor))
 
                 val parsedTotalValue = String.format("%.2f",totalValue.toFloat()/100)
                 binding.tvTotalValue.text = parsedTotalValue.replace("-","")
 
                 binding.pbLoading.visibility = View.GONE
-                if(body?.transactions?.isEmpty() == true){
-                    binding.tvNoTransactions.visibility=View.VISIBLE
+
+                if(body?.transactions?.isEmpty() == true) {
+                    binding.tvNoTransactions.visibility = View.VISIBLE
                 }
             }
 
