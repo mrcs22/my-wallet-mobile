@@ -1,8 +1,11 @@
 package mrcs.mywallet.ui.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
+import mrcs.mywallet.R
 import mrcs.mywallet.databinding.RecordItemBinding
 import mrcs.mywallet.domain.Record
 import kotlin.Int
@@ -22,7 +25,12 @@ class RecordsAdapter(records: List<Record>) :
 
         holder.binding.tvDate.text = record.date
         holder.binding.tvDescription.text = record.description
-        holder.binding.tvValue.text = record.value.toString()
+
+        if(record.type == "in"){
+            holder.binding.tvValue.setTextColor(Color.parseColor("#009900"))
+        }
+        val parsedRecordValue = String.format("%.2f", record.value.toFloat()/100)
+        holder.binding.tvValue.text = parsedRecordValue
 
     }
 

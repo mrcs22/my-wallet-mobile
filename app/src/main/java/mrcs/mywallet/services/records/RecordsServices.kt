@@ -10,12 +10,12 @@ class RecordsServices {
         val retrofit = Api().config()
         val getRecordsHandler = retrofit.create(GetRecordsRequest::class.java)
 
-        return getRecordsHandler.getRecords(token)
+        return getRecordsHandler.getRecords("Bearer $token")
     }
 }
 
 interface GetRecordsRequest {
     @Headers("Content-Type: application/json")
     @GET("transactions")
-    fun getRecords(@Header("Authorization: Bearer") authorization:String): Call<Records>
+    fun getRecords(@Header("Authorization") authorization:String): Call<Records>
 }

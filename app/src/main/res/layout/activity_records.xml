@@ -35,11 +35,16 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/round_corner_background"
         android:backgroundTint="@color/white"
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        android:paddingStart="4dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="4dp"
+        android:paddingBottom="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ibSingOut"
-        tools:listitem="@layout/record_item"
-        />
+        tools:listitem="@layout/record_item" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/mbAddIncome"
@@ -75,4 +80,57 @@
 
     </com.google.android.material.button.MaterialButton>
 
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/total"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rcRecords"
+        app:layout_constraintStart_toStartOf="@+id/rcRecords" />
+
+    <TextView
+        android:id="@+id/tvTotalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/white"
+        android:text="0,00"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTotal"
+        app:layout_constraintEnd_toEndOf="@+id/rcRecords"
+        app:layout_constraintTop_toTopOf="@+id/tvTotal" />
+
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#00ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/rcRecords"
+        app:layout_constraintEnd_toEndOf="@+id/rcRecords"
+        app:layout_constraintStart_toStartOf="@+id/rcRecords"
+        app:layout_constraintTop_toTopOf="@+id/rcRecords" />
+
+    <TextView
+        android:id="@+id/tvNoTransactions"
+        android:layout_width="190dp"
+        android:layout_height="42dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/sem_registros"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rcRecords"
+        app:layout_constraintEnd_toEndOf="@+id/rcRecords"
+        app:layout_constraintStart_toStartOf="@+id/rcRecords"
+        app:layout_constraintTop_toTopOf="@+id/rcRecords"
+        android:visibility="invisible"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
