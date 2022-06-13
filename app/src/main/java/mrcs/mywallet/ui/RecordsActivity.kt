@@ -11,7 +11,6 @@ import com.google.android.material.snackbar.Snackbar
 import mrcs.mywallet.R
 import mrcs.mywallet.databinding.ActivityRecordsBinding
 import mrcs.mywallet.domain.Records
-import mrcs.mywallet.domain.Transaction
 import mrcs.mywallet.domain.User
 import mrcs.mywallet.services.records.RecordsServices
 import mrcs.mywallet.ui.adapter.RecordsAdapter
@@ -37,11 +36,11 @@ class RecordsActivity : AppCompatActivity() {
         grettingsHolder = binding.tvGreetings
 
         binding.mbAddExpense.setOnClickListener{
-            switchToAddTransaction(Transaction("expense", null))
+            switchToAddTransaction("out")
         }
 
         binding.mbAddIncome.setOnClickListener{
-            switchToAddTransaction(Transaction("income",null))
+            switchToAddTransaction("in")
         }
 
         setContentView(binding.root)
@@ -49,9 +48,19 @@ class RecordsActivity : AppCompatActivity() {
         loadUserFromExtra()
     }
 
-    private fun switchToAddTransaction(transactionType: Transaction){
+    override fun onResume() {
+        super.onResume()
+
+        binding.pbLoading.visibility = View.VISIBLE
+        getRecords()
+    }
+
+    private fun switchToAddTransaction(transactionType: String){
         val switchActivityIntent = Intent(this, AddTransactionActivity::class.java)
+
         switchActivityIntent.putExtra(AddTransactionActivity.Extras.TRANSACTION_TYPE, transactionType)
+        switchActivityIntent.putExtra(AddTransactionActivity.Extras.AUTH_TOKEN, authToken)
+
         startActivity(switchActivityIntent)
     }
 
@@ -61,7 +70,7 @@ class RecordsActivity : AppCompatActivity() {
                 this.onBackPressed()
             }
 
-            grettingsHolder.text = "Olá, ${it?.name}"
+            grettingsHolder.text = "${getString(R.string.ola)}, ${it?.name}"
             authToken= it?.token.toString()
 
             getRecords()

@@ -23,4 +23,8 @@
     <string name="sem_registros">Você ainda não adicionou nenhum registro! :)</string>
     <string name="salvar_transacao">Salvar transação</string>
     <string name="descricao">Descrição</string>
+    <string name="nova_despesa">Nova Saída</string>
+    <string name="ola">Olá</string>
+    <string name="valor_transacao_invalido">Insira um valor maior que 0,00</string>
+    <string name="descricao_transacao_invalida">Insira uma descrição</string>
 </resources>
